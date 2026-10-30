@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inventory Stock and Reorder Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header><h1>Inventory Stock and Reorder Dashboard</h1><p>Project DA-017 · Supply Chain &amp; Inventory · Prototype using sample data (40 products, last 90 days)</p></header>
+<div class="rule"><b>Reorder Point = (Avg Daily Sales × Lead Time) + Safety Stock</b><small>If Current Stock ≤ Reorder Point → <b>Reorder Now</b>. Change the settings below and watch the results update.</small></div>
+<div class="grid kpis" id="kpis"></div>
+<div class="card controls">
+<div><label>Safety stock: <b id="sv">3</b> days of sales</label><input type="range" id="safety" min="0" max="10" value="3"></div>
+<div><label>Slow-moving if sold less than: <b id="tv">30</b> units in 90 days</label><input type="range" id="slow" min="5" max="100" value="30"></div>
+<div><label>Search product</label><input type="text" id="q" placeholder="e.g. Sugar, Soap…"></div>
+</div>
+<div class="card"><h2>Product table</h2>
+<div class="tabs" id="tabs"></div>
+<div class="scroll"><table><thead><tr><th>Product</th><th>Category</th><th class="n">Stock</th><th class="n">Daily sales</th><th class="n">Reorder pt</th><th class="n">Lead (d)</th><th>Status</th><th class="n">Order qty</th></tr></thead><tbody id="rows"></tbody></table></div></div>
+<div class="grid two"><div class="card"><h2>Top 10 fast sellers (units, 90 days)</h2><div id="top"></div></div>
+<div class="card"><h2>Stock by category (units)</h2><div id="cat"></div></div></div>
+<footer>BCA (AI) first-year project prototype · sample data, not real business figures</footer>
+</div>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
